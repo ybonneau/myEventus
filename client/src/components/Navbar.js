@@ -11,7 +11,7 @@ export default function Navbar() {
         <Box sx={{ flexGrow: 1 }}>
         <AppBar>
             <Toolbar variant="dense">
-                <Typography variant="title" color="inherit">
+                <Typography variant="h3" color="inherit">
                     MyEventus
                 </Typography>
             </Toolbar>
