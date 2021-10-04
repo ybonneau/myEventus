@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@mui/material/Box';
 
 
-const Navbar = () => {
+export default function Navbar() {
 
     return(
         <Box sx={{ flexGrow: 1 }}>
@@ -19,4 +19,3 @@ const Navbar = () => {
         </Box>
     )
 }
-export default Navbar;
