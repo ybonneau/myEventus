@@ -1,13 +1,12 @@
 /* import Header from './components/Header'; */
 import Navbar from './components/Navbar';
-import './App.css';
 import FilterContent from './components/FilterContent';
 /* import SearchForm from './components/SearchForm'; */
 
 function App() {
   return (
     <div className="App">
-        <Navbar />
+      <Navbar />
       <FilterContent />
     </div>
   );
