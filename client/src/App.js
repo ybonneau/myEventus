@@ -1,7 +1,7 @@
 import Navbar from './components/menu/navBar';
 import FilterContent from './components/home/filterContent';
 
-function App() {
+export default function App() {
   return (
     <div>
       <Navbar />
@@ -9,5 +9,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
