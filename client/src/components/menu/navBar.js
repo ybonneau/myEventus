@@ -1,13 +1,15 @@
 import React from 'react';
-import { Box,Typography,AppBar } from '@mui/material';
+import { Box, AppBar, Container } from '@mui/material';
+import logo from '../../assets/img/logo.png'
+import '../menu/navBar.css';
 
 export default function Navbar() {
     return (
         <Box>
-            <AppBar style={{ backgroundColor: "#ab47bc" }}>
-                <Typography variant="h3">
-                    MyEventus
-                </Typography>
+            <AppBar sx={{ bgcolor: '#1A2238' }}>
+                <Container sx={{width: '60vw'}}>
+                    <img src={logo} alt="logo" height="50" width="200"/>
+                </Container>
             </AppBar>
         </Box>
     )
