@@ -2,6 +2,7 @@ import { Grid, Slider, Typography, Autocomplete, TextField } from "@mui/material
 /* import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker'; */
+import { styled } from '@mui/material/styles';
 import { cities } from "./cities"
 
 const marks = [
@@ -15,11 +16,50 @@ const marks = [
     },
 ];
 
+const PrettoSlider = styled(Slider)({
+    color: '#FF6A3D',
+    height: 8,
+    '& .MuiSlider-track': {
+      border: 'none',
+    },
+    '& .MuiSlider-thumb': {
+      height: 24,
+      width: 24,
+      backgroundColor: '#FFF',
+      border: '2px solid currentColor',
+      '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+        boxShadow: 'inherit',
+      },
+      '&:before': {
+        display: 'none',
+      },
+    },
+    '& .MuiSlider-valueLabel': {
+      lineHeight: 1.2,
+      fontSize: 12,
+      background: 'unset',
+      padding: 0,
+      width: 32,
+      height: 32,
+      borderRadius: '50% 50% 50% 0',
+      backgroundColor: '#FF6A3D',
+      transformOrigin: 'bottom left',
+      transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+      '&:before': { display: 'none' },
+      '&.MuiSlider-valueLabelOpen': {
+        transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+      },
+      '& > *': {
+        transform: 'rotate(45deg)',
+      },
+    },
+});
+
 export default function SearchForm() {
     return (
         <Grid container spacing={2}>
             <Grid item xs={6}>
-            <Typography variant="button" gutterBottom>Lieu</Typography>
+            <Typography sx={{color: ''}} variant="button" gutterBottom>Lieu</Typography>
             <Autocomplete
                 id="ville"
                 options={cities.map((option) => option.city)}
@@ -27,8 +67,8 @@ export default function SearchForm() {
             />
             </Grid>
             <Grid item xs={6}>
-                <Typography variant="button" gutterBottom>Distance</Typography>
-                <Slider
+                <Typography sx={{color: ''}} variant="button" gutterBottom>Distance</Typography>
+                <PrettoSlider
                     aria-label="Distance"
                     defaultValue={10}
                     valueLabelDisplay="auto"
