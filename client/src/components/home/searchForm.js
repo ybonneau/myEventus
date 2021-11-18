@@ -1,9 +1,12 @@
-import { Grid, Slider, Typography, Autocomplete, TextField } from "@mui/material"
-/* import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker'; */
+import { Grid, Slider, Typography, Autocomplete, TextField } from "@mui/material";
 import { styled } from '@mui/material/styles';
-import { cities } from "./cities"
+import { cities } from "./cities";
+
+import DatePicker from '@mui/lab/DatePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DateAdapter from '@mui/lab/AdapterDayjs';
+
+import * as React from 'react';
 
 const marks = [
     {
@@ -15,6 +18,16 @@ const marks = [
       label: '40km',
     },
 ];
+
+const CustomAC = styled(Autocomplete) ({
+    "& .MuiInputBase-input.MuiAutocomplete-input": {
+      color: "#1A2238",
+      fontSize: 18
+    },
+    "& #custom-autocomplete-label": {
+      color: "brown"
+    }
+});
 
 const PrettoSlider = styled(Slider)({
     color: '#FF6A3D',
@@ -55,12 +68,15 @@ const PrettoSlider = styled(Slider)({
     },
 });
 
-export default function SearchForm() {
+
+export default function SearchForm({children}) {
+
+  const [value, setValue] = React.useState(new Date());
     return (
         <Grid container spacing={2}>
             <Grid item xs={6}>
             <Typography sx={{color: ''}} variant="button" gutterBottom>Lieu</Typography>
-            <Autocomplete
+            <Autocomplete sx={{ "& .MuiInputBase-input.MuiAutocomplete-input": { color: "#1A2238" } }}
                 id="ville"
                 options={cities.map((option) => option.city)}
                 renderInput={(params) => <TextField {...params} label="Entrez une ville" />}
@@ -80,8 +96,8 @@ export default function SearchForm() {
                     />
             </Grid>
             <Grid item xs={6}>
-{/*                 <Typography variant="button" gutterBottom>Date</Typography>
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <Typography variant="button" gutterBottom>Date</Typography>
+                <LocalizationProvider dateAdapter={DateAdapter}>
                     <DatePicker
                         label="Basic example"
                         value={value}
@@ -90,7 +106,7 @@ export default function SearchForm() {
                         }}
                         renderInput={(params) => <TextField {...params} />}
                     />
-                </LocalizationProvider> */}
+                </LocalizationProvider>
             </Grid>
         </Grid>
     )
