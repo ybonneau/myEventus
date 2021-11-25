@@ -1,4 +1,4 @@
-import { Grid, Slider, Typography, Autocomplete, TextField } from "@mui/material";
+import { Grid, Slider, Typography, Autocomplete, TextField, Button } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { cities } from "./cities";
 
@@ -19,7 +19,7 @@ const marks = [
     },
 ];
 
-const CustomAC = styled(Autocomplete) ({
+/* const CustomAC = styled(Autocomplete) ({
     "& .MuiInputBase-input.MuiAutocomplete-input": {
       color: "#1A2238",
       fontSize: 18
@@ -27,7 +27,7 @@ const CustomAC = styled(Autocomplete) ({
     "& #custom-autocomplete-label": {
       color: "brown"
     }
-});
+}); */
 
 const PrettoSlider = styled(Slider)({
     color: '#FF6A3D',
@@ -73,7 +73,7 @@ export default function SearchForm({children}) {
 
   const [value, setValue] = React.useState(new Date());
     return (
-        <Grid container spacing={2}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <Grid item xs={6}>
             <Typography sx={{color: ''}} variant="button" gutterBottom>Lieu</Typography>
             <Autocomplete sx={{ "& .MuiInputBase-input.MuiAutocomplete-input": { color: "#1A2238" } }}
@@ -96,18 +96,21 @@ export default function SearchForm({children}) {
                     />
             </Grid>
             <Grid item xs={6}>
-                <Typography variant="button" gutterBottom>Date</Typography>
-                <LocalizationProvider dateAdapter={DateAdapter}>
-                    <DatePicker
-                        label="Basic example"
-                        value={value}
-                        onChange={(newValue) => {
-                        setValue(newValue);
-                        }}
-                        renderInput={(params) => <TextField {...params} />}
-                    />
-                </LocalizationProvider>
-            </Grid>
+            <Typography variant="button"  sx={{display: "block"}} gutterBottom>Date</Typography>
+            <LocalizationProvider dateAdapter={DateAdapter}>
+                <DatePicker
+                    label="Date"
+                    value={value}
+                    onChange={(newValue) => {
+                    setValue(newValue);
+                    }}
+                    renderInput={(params) => <TextField {...params} />}
+                />
+            </LocalizationProvider>
+          </Grid>
+          <Grid item xs={6} sx={{ display: "flex" }}>
+            <Button sx={{ aligncontent:"center" }} variant="outlined">Rechercher</Button>
+          </Grid>
         </Grid>
     )
 }

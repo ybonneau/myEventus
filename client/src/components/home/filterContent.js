@@ -7,7 +7,6 @@ export default function FilterContent() {
             <Box sx={{
                 boxShadow: 3,
                 width: '60vw',
-                height: '20vh',
                 bgcolor: 'white',
                 marginLeft: 'auto',
                 marginRight: 'auto',
@@ -15,7 +14,8 @@ export default function FilterContent() {
                 borderRadius: '5px',
                 paddingTop: '2vh',
                 paddingRight: '4vw',
-                paddingLeft: '4vw'
+                paddingLeft: '4vw',
+                paddingBottom:'2vh'
             }}>
                 <SearchForm />
             </Box>
