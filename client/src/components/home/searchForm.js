@@ -19,7 +19,7 @@ const marks = [
     },
 ];
 
-const CustomAC = styled(Autocomplete) ({
+/*const CustomAC = styled(Autocomplete) ({
     "& .MuiInputBase-input.MuiAutocomplete-input": {
       color: "#1A2238",
       fontSize: 18
@@ -27,7 +27,7 @@ const CustomAC = styled(Autocomplete) ({
     "& #custom-autocomplete-label": {
       color: "brown"
     }
-});
+});*/
 
 const PrettoSlider = styled(Slider)({
     color: '#FF6A3D',

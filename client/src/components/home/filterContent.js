@@ -5,13 +5,13 @@ export default function FilterContent() {
     return (
         <>
             <Box sx={{
-                boxShadow: 3,
+                boxShadow: 2,
                 width: '60vw',
                 height: '20vh',
                 bgcolor: 'white',
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                marginTop: '10vh',
+                marginTop: '5vh',
                 borderRadius: '5px',
                 paddingTop: '2vh',
                 paddingRight: '4vw',
@@ -20,6 +20,5 @@ export default function FilterContent() {
                 <SearchForm />
             </Box>
         </>
-
     )
 }

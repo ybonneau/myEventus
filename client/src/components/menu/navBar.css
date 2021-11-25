@@ -1,7 +1,11 @@
+:root {
+    --primary-color: #1A2238 
+}
+
 div.MuiContainer-root {
     padding: 0%;
 }
 
 .appBar {
-    background-color: #1A2238
+    background-color: var(--primary-color)
 }
