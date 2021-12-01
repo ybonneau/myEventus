@@ -19,16 +19,6 @@ const marks = [
     },
 ];
 
-/* const CustomAC = styled(Autocomplete) ({
-    "& .MuiInputBase-input.MuiAutocomplete-input": {
-      color: "#1A2238",
-      fontSize: 18
-    },
-    "& #custom-autocomplete-label": {
-      color: "brown"
-    }
-}); */
-
 const PrettoSlider = styled(Slider)({
     color: '#FF6A3D',
     height: 8,
@@ -68,12 +58,14 @@ const PrettoSlider = styled(Slider)({
     },
 });
 
-
 export default function SearchForm({children}) {
 
   const [value, setValue] = React.useState(new Date());
     return (
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid container
+        alignItems="center"
+        justifyContent="center"
+        rowSpacing={2} columnSpacing={4}>
             <Grid item xs={6}>
             <Typography sx={{color: ''}} variant="button" gutterBottom>Lieu</Typography>
             <Autocomplete sx={{ "& .MuiInputBase-input.MuiAutocomplete-input": { color: "#1A2238" } }}
@@ -95,11 +87,11 @@ export default function SearchForm({children}) {
                     marks={marks}
                     />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
             <Typography variant="button"  sx={{display: "block"}} gutterBottom>Date</Typography>
             <LocalizationProvider dateAdapter={DateAdapter}>
                 <DatePicker
-                    label="Date"
+                    label=""
                     value={value}
                     onChange={(newValue) => {
                     setValue(newValue);
@@ -108,8 +100,8 @@ export default function SearchForm({children}) {
                 />
             </LocalizationProvider>
           </Grid>
-          <Grid item xs={6} sx={{ display: "flex" }}>
-            <Button sx={{ aligncontent:"center" }} variant="outlined">Rechercher</Button>
+          <Grid item justifyContent="center">
+            <Button variant="contained">Rechercher</Button>
           </Grid>
         </Grid>
     )
