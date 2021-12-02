@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #1A2238;
+    --secondary-color: #FF6A3D;
+}
+
+.place {
+    color: var(--primary-color);
+}
+
+.name {
+    color: var(--secondary-color)
+}

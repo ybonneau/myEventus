@@ -38733,6 +38733,7 @@ export const cities = [
   }
 ]
 
+// eslint-disable-next-line
 export default {
   cities,
 }
