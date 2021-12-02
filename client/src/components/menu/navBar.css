@@ -1,5 +1,6 @@
 :root {
-    --primary-color: #1A2238 
+    --primary-color: #1A2238;
+    --secondary-color: #FF6A3D;
 }
 
 div.MuiContainer-root {
