@@ -101,7 +101,7 @@ export default function SearchForm({children}) {
             </LocalizationProvider>
           </Grid>
           <Grid item justifyContent="center">
-            <Button variant="contained">Rechercher</Button>
+            <Button className="search" variant="contained">Rechercher</Button>
           </Grid>
         </Grid>
     )
