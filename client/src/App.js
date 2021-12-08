@@ -1,6 +1,8 @@
 import Navbar from './components/menu/navBar';
 import FilterContent from './components/home/filterContent';
 import Result from './components/home/results';
+import Footer from "./components/menu/footer";
+
 
 export default function App() {
   return (
@@ -8,6 +10,7 @@ export default function App() {
       <Navbar />
       <FilterContent />
       <Result/>
+      <Footer/>
     </div>
   );
 }
