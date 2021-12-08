@@ -1,5 +1,5 @@
 import { Card, Container, Grid } from "@mui/material";
-import { Typography, CircularProgress, Box } from '@mui/material';
+import { Typography, CircularProgress, Box, Stack } from '@mui/material';
 import { useState, useEffect } from 'react';
 
 export default function Result() {
@@ -28,12 +28,15 @@ export default function Result() {
                     <Card className="content">
                         <Grid container sx={{padding: "2vh"}}>
                             <Grid xs={3} sx={{margin: "auto",}}>
-                                <Typography className="name" variant="h4">{event.titre}</Typography>
-                                <Typography className="place" variant="h6">{event.ville} - {event.place}</Typography>
-                                <Typography variant="caption">{event.dateDebut} - {event.dateFin}</Typography>
+                                <Stack>
+                                    <Typography className="name" variant="h5">{event.titre.length > 14 ? event.titre.substr(0, 15) + "..." : event.titre}</Typography>
+                                    <Typography className="place" variant="h7">{event.ville} - {event.place}</Typography>
+                                    <Typography variant="caption">{event.dateDebut} - {event.dateFin}</Typography>
+                                </Stack>
                             </Grid>
-                            {event.description &&
-                                <Grid xs={8} sx={{margin: "auto"}}><Typography align="justify" variant="body1">{event.description.length > 200 ? event.description.substr(0, 300) + "..." : event.description}</Typography></Grid>
+                            {event.description ?
+                                <Grid xs={8} sx={{margin: "auto"}}><Typography align="justify" variant="body1">{event.description.length > 300 ? event.description.substr(0, 300) + "..." : event.description}</Typography></Grid>
+                                : <Grid xs={8} sx={{margin: "auto"}}><Typography align="justify" variant="body1">Pas de description...</Typography></Grid> 
                             }
                         </Grid>
                     </Card>

@@ -18,4 +18,8 @@ code {
     monospace;
 }
 
+.search {
+  background-color: var(--primary-color);
+}
+
 
