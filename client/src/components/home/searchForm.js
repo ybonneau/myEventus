@@ -60,6 +60,7 @@ const PrettoSlider = styled(Slider)({
 
 export default function SearchForm({updateDate, updateCity}) {
   const [date, setDate] = React.useState(new Date());
+  const [city, setCity] = React.useState('');
     return (
         <Grid container
         alignItems="center"
@@ -69,9 +70,11 @@ export default function SearchForm({updateDate, updateCity}) {
             <Typography sx={{color: ''}} variant="button" gutterBottom>Lieu</Typography>
             <Autocomplete sx={{ "& .MuiInputBase-input.MuiAutocomplete-input": { color: "#1A2238" } }}
                 id="ville"
+                value={city}
                 options={cities.map((option) => option.city)}
                 renderInput={(params) => <TextField {...params} label="Entrez une ville" />}
                 onChange={(event, newValue) => {
+                  setCity(newValue)
                   updateCity(newValue)
                 }}
             />
@@ -104,9 +107,6 @@ export default function SearchForm({updateDate, updateCity}) {
                     renderInput={(params) => <TextField {...params} />}
                 />
             </LocalizationProvider>
-          </Grid>
-          <Grid item justifyContent="center">
-            <Button className="search" variant="contained">Rechercher</Button>
           </Grid>
         </Grid>
     )

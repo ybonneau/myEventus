@@ -6,12 +6,10 @@ import moment from 'moment'
 export default function Result({date, city}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
-    const [dateChange, setDateChange] = useState(true)
-    const [cityChange, setCityChange] = useState(true)
+    const [oldDate, setOldDate] = useState()
+    const [oldCity, setOldChange] = useState()
 
-    console.log(city)
-
-    if(cityChange) {
+    if(oldCity != city) {
         if(city) {
             console.log(city)
             fetch(`http://localhost:8080/evenement/getByCity?city=${city}`)
@@ -19,12 +17,12 @@ export default function Result({date, city}) {
                 .then((data) => {
                     setData(data);
                     setIsLoaded(true);
-                    setCityChange(false)
+                    setOldChange(city)
                 })
         }
     }
 
-    if(dateChange) {
+    if(oldDate != moment(date).format('YYYY-MM-DD')) {
         if(date) {
             date = moment(date).format('YYYY-MM-DD')
             fetch(`http://localhost:8080/evenement/getByDate?date=${date}`)
@@ -32,7 +30,7 @@ export default function Result({date, city}) {
                 .then((data) => {
                     setData(data);
                     setIsLoaded(true);
-                    setDateChange(false)
+                    setOldDate(date)
                 })
         }
     }
