@@ -1,10 +1,28 @@
 import { Card, Container, Grid } from "@mui/material";
 import { Typography, CircularProgress, Box, Stack } from '@mui/material';
 import { useState, useEffect } from 'react';
+import moment from 'moment'
 
-export default function Result() {
+export default function Result({date}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
+    const [currrentDate, setDate] = useState(date)
+    const [dateChange, setDateChange] = useState(true)
+
+    console.log(moment(date).format('YYYY-MM-DD'))
+
+    if(dateChange) {
+        if(date) {
+            date = moment(date).format('YYYY-MM-DD')
+            fetch(`http://localhost:8080/evenement/getByDate?date=${date}`)
+                .then(res => res.json())
+                .then((data) => {
+                    setData(data);
+                    setIsLoaded(true);
+                    setDateChange(false)
+                })
+        }
+    }
 
     useEffect(() => {
         fetch("http://localhost:8080/evenement/first")
@@ -14,6 +32,7 @@ export default function Result() {
                 setIsLoaded(true)
             })
     }, [])
+    
     if(!isLoaded) {
         return (
             <Box sx={{ display: 'flex' }}>

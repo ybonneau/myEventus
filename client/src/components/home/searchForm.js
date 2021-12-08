@@ -4,7 +4,7 @@ import { cities } from "./cities";
 
 import DatePicker from '@mui/lab/DatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DateAdapter from '@mui/lab/AdapterDayjs';
+import DateAdapter from '@mui/lab/AdapterMoment';
 
 import * as React from 'react';
 
@@ -58,9 +58,9 @@ const PrettoSlider = styled(Slider)({
     },
 });
 
-export default function SearchForm({children}) {
+export default function SearchForm({updateDate}) {
 
-  const [value, setValue] = React.useState(new Date());
+  const [date, setDate] = React.useState(new Date());
     return (
         <Grid container
         alignItems="center"
@@ -91,10 +91,13 @@ export default function SearchForm({children}) {
             <Typography variant="button"  sx={{display: "block"}} gutterBottom>Date</Typography>
             <LocalizationProvider dateAdapter={DateAdapter}>
                 <DatePicker
+                    inputFormat="DD/MM/YYYY"
+                    format="DD/MM/YYYY"
                     label=""
-                    value={value}
+                    value={date}
                     onChange={(newValue) => {
-                    setValue(newValue);
+                      setDate(newValue);
+                      updateDate(newValue)
                     }}
                     renderInput={(params) => <TextField {...params} />}
                 />

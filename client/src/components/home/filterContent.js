@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
 import SearchForm from "./searchForm";
 import '../home/home.css';
+import * as React from 'react';
 
-export default function FilterContent() {
+export default function FilterContent({update}) {
     return (
         <>
             <Box sx={{
@@ -18,7 +19,7 @@ export default function FilterContent() {
                 paddingLeft: '4vw',
                 paddingBottom:'2vh'
             }}>
-                <SearchForm />
+                <SearchForm updateDate={update}/>
             </Box>
         </>
     )
