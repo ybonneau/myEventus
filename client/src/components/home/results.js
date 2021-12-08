@@ -3,13 +3,26 @@ import { Typography, CircularProgress, Box, Stack } from '@mui/material';
 import { useState, useEffect } from 'react';
 import moment from 'moment'
 
-export default function Result({date}) {
+export default function Result({date, city}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
-    const [currrentDate, setDate] = useState(date)
     const [dateChange, setDateChange] = useState(true)
+    const [cityChange, setCityChange] = useState(true)
 
-    console.log(moment(date).format('YYYY-MM-DD'))
+    console.log(city)
+
+    if(cityChange) {
+        if(city) {
+            console.log(city)
+            fetch(`http://localhost:8080/evenement/getByCity?city=${city}`)
+                .then(res => res.json())
+                .then((data) => {
+                    setData(data);
+                    setIsLoaded(true);
+                    setCityChange(false)
+                })
+        }
+    }
 
     if(dateChange) {
         if(date) {

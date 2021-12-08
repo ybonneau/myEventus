@@ -3,7 +3,7 @@ import SearchForm from "./searchForm";
 import '../home/home.css';
 import * as React from 'react';
 
-export default function FilterContent({update}) {
+export default function FilterContent({date, city}) {
     return (
         <>
             <Box sx={{
@@ -19,7 +19,7 @@ export default function FilterContent({update}) {
                 paddingLeft: '4vw',
                 paddingBottom:'2vh'
             }}>
-                <SearchForm updateDate={update}/>
+                <SearchForm updateDate={date} updateCity={city}/>
             </Box>
         </>
     )

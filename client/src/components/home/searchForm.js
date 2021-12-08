@@ -58,8 +58,7 @@ const PrettoSlider = styled(Slider)({
     },
 });
 
-export default function SearchForm({updateDate}) {
-
+export default function SearchForm({updateDate, updateCity}) {
   const [date, setDate] = React.useState(new Date());
     return (
         <Grid container
@@ -72,6 +71,9 @@ export default function SearchForm({updateDate}) {
                 id="ville"
                 options={cities.map((option) => option.city)}
                 renderInput={(params) => <TextField {...params} label="Entrez une ville" />}
+                onChange={(event, newValue) => {
+                  updateCity(newValue)
+                }}
             />
             </Grid>
             <Grid item xs={6}>

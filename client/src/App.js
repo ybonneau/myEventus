@@ -7,11 +7,12 @@ import moment from 'moment'
 
 export default function App() {
   const [date, updateDate] = React.useState();
+  const [city, updateCity] = React.useState();
   return (
     <div>
       <Navbar />
-      <FilterContent update={updateDate}/>
-      <Result date={date}/>
+      <FilterContent date={updateDate} city={updateCity}/>
+      <Result date={date} city={city}/>
       <br/>
     </div>
   );
